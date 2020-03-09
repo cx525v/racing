@@ -1,0 +1,90 @@
+<div class="container-fluid col-md-6">
+  <h3 class="text-center lead">Edit Member to Racing Team</h3>
+  <br />
+  <!--Template Driven Form or Model Driven Form?-->
+  <form [formGroup]="memberForm" (ngSubmit)="onSubmit(memberForm)">
+    <div>
+      <div class="row">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName ="firstName"
+            placeholder="First Name"
+            [ngClass]="{ 'is-invalid': f.firstName.touched && f.firstName.errors }"
+          />
+          <div *ngIf="f.firstName.touched && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        </div>
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName ="lastName"
+            placeholder="Last Name"
+            [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }"
+          />
+          <div *ngIf="f.lastName.touched && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            id="jobTitle"
+            formControlName ="jobTitle"
+            placeholder="Job Title"
+            [ngClass]="{ 'is-invalid': f.jobTitle.touched && f.jobTitle.errors }"
+          />
+          <div *ngIf="f.jobTitle.touched && f.jobTitle.errors" class="invalid-feedback">
+            <div *ngIf="f.jobTitle.errors.required">Job Title is required</div>
+          </div>
+        </div>
+        <!--We may have to make a service call to get this list-->
+     <div class="col-md-6">
+       <select id="team" class="custom-select" formControlName ="team"
+           [ngClass]="{ 'is-invalid': f.team.touched && f.team.errors }">
+           <option value="">Please select a team</option>
+          <option *ngFor="let team of teams" [ngValue] ="team.teamName">{{ team.teamName }}</option>
+        </select>
+        <div *ngIf=" f.team.touched && f.team.errors" class="invalid-feedback">
+          <div *ngIf="f.team.errors.required">Team is required</div>
+        </div>
+      </div>
+      </div>
+      <br />
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label id="activeStatus" class="md-check lead p-3">
+            <input type="radio" value="Active" name="status" formControlName ="status"
+              [ngClass]="{ 'is-invalid': f.status.touched && f.status.errors }" /> Active
+          </label>
+          <label class="md-check lead p-3">
+            <input type="radio" value="Inactive" name="status" formControlName ="status"
+            [ngClass]="{ 'is-invalid': f.status.touched && f.status.errors }"/> Inactive
+          </label>
+        </div>
+        <div *ngIf=" f.status.touched && f.status.errors" class="invalid-feedback">
+          <div *ngIf="f.status.errors.required">Status is required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-right">
+    <button type="cancel" id="bCancel" class="btn btn-default m-3" (click)="cancel()">
+      Cancel
+    </button>
+    <!--Disable if form is invalid-->
+    <button type="submit" id="bSubmit" class="btn btn-primary  m-3" [disabled]="!memberForm.valid">
+      Save Member
+    </button>
+  </div>
+  </form>
+</div>
