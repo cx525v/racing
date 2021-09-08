@@ -3,17 +3,17 @@
     {
       "firstName": "John",
       "lastName": "Doe",
-      "jobTitle": "Driver",
+      "jobTitle": "President",
       "team": "World Rally Championship - Car 90",
-      "status": false,
+      "status": true,
       "id": 1
     },
     {
-      "firstName": "chao",
-      "lastName": "xu",
-      "jobTitle": "Drivertr",
-      "team": "Deutsche Tourenwagen Masters - Car 118",
-      "status": true,
+      "firstName": "Charles",
+      "lastName": "Xu",
+      "jobTitle": "Developer",
+      "team": "Formula 1 - Car 77",
+      "status": false,
       "id": 2
     }
   ],

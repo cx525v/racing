@@ -70,9 +70,10 @@ export class MemberEditComponent implements OnInit {
       lastName: form.get('lastName').value,
       jobTitle: form.get('jobTitle').value,
       team: form.get('team').value,
-      status: form.get('status').value === 'Active' ? true : false,
+      status: form.get('status').value === 'Active',
       id: this.id
      };
+ 
     this.store.dispatch(new memberActions.UpdateMember(this.memberModel));
     this.router.navigate(['/members']);
   }

@@ -53,8 +53,9 @@ export class MemberAddComponent implements OnInit, OnChanges {
       lastName: form.get('lastName').value,
       jobTitle: form.get('jobTitle').value,
       team: form.get('team').value,
-      status: form.get('status').value === 'Active' ? true : false
+      status: form.get('status').value === 'Active'
     };
+
     this.store.dispatch(new memberActions.CreateMember(this.memberModel));
     this.memberForm.reset();
     this.router.navigate(['/members']);

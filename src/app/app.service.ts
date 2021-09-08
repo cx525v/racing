@@ -81,7 +81,7 @@ export class AppService {
  }
 
  private isMemberInvalid(member: Member): boolean {
-  if (!member.firstName || !member.lastName || !member.jobTitle || !member.team || !member.status) {
+  if (!member.firstName || !member.lastName || !member.jobTitle || !member.team || member.status === null) {
     return true;
   } else {
     return false;
