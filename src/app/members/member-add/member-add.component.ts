@@ -41,7 +41,6 @@ export class MemberAddComponent implements OnInit, OnChanges {
 
   get f() { return this.memberForm.controls; }
 
-  // TODO: Add member to members
   onSubmit(form: FormGroup) {
     this.submitted = true;
     if (this.memberForm.invalid) {

@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { EffectsModule} from '@ngrx/effects';
 import { StoreModule} from '@ngrx/store';
 import { AuthGuard } from './auth.guard';
-// We may be missing a route...
+
 const ROUTES = [
   {
     path: '',
@@ -24,8 +24,7 @@ const ROUTES = [
   {
     path: 'members',
     loadChildren: () => import('./members/members.module').then(m => m.MembersModule),
-   // loadChildren: './members/members.module#MembersModule',
-    canActivate: [AuthGuard],
+     canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -33,7 +32,6 @@ const ROUTES = [
   }
 ];
 
-// Notice how both FormsModule and ReactiveFormsModule imported...choices, choices!
 @NgModule({
   declarations: [AppComponent, BannerComponent, LoginComponent],
   imports: [

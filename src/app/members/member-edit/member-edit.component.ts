@@ -40,7 +40,9 @@ export class MemberEditComponent implements OnInit {
     this.loadData();
     this.appService.getTeams().subscribe(data => this.teams = data);
   }
+
   get f() { return this.memberForm.controls; }
+  
   loadData() {
       const member$: Observable<Member> = this.store.select(
       fromMember.getCurrentMember
@@ -58,7 +60,7 @@ export class MemberEditComponent implements OnInit {
       }
     });
   }
-  // TODO: Add member to members
+
   onSubmit(form: FormGroup) {
     this.submitted = true;
     if (this.memberForm.invalid) {
