@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    localStorage.setItem('username', this.loginForm.value.username);
     this.appService.setUsername(this.loginForm.value.username);
     this.router.navigate(['/members']);
   }
