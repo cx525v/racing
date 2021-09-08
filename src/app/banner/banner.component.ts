@@ -14,7 +14,6 @@ export class BannerComponent implements OnInit {
 
   logout() {
     this.appService.username = '';
-    localStorage.removeItem('username');
     this.router.navigate(['/login']);
   }
 }
